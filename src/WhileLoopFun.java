@@ -65,10 +65,10 @@ public class WhileLoopFun {
      */
     public int maxDoubles(int number, int threshold) {
         int counter = 0;
-        while (number <= threshold) {
-            if (number * 2 <= threshold) {
-                counter++;
-            }
+        int doubleNum = number * 2;
+        while (doubleNum <= threshold) {
+            counter++;
+            doubleNum *= 2;
         }
         return counter;
     }
@@ -86,11 +86,15 @@ public class WhileLoopFun {
      but 1 has only a single divisor! (don’t believe it? Google it!)
      */
     public boolean isPrime(int number) {
-        int i;
-        for (i = number - 1; i > 1; i--) {
-            if (number % i == 0) {
+    if (number == 1) {
+        return false;
+    }
+    int divisor = 2;
+    while (divisor < number){
+            if (number % divisor == 0) {
                 return false;
             }
+            divisor++;
         }
         return true;
     }
